@@ -25,5 +25,6 @@ public class PickupTrigger : MonoBehaviour
             thingHolding.transform.SetParent(null); 
             thingHolding = null; 
         }
+
     }
 }

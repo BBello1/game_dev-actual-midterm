@@ -11,7 +11,12 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position += transform.TransformVector(new Vector3(0f, 0f, .1f));
         }
-        
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position -= transform.TransformVector(new Vector3(0f, 0f, .1f));
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
             transform.localEulerAngles += new Vector3(0f, -90f * Time.deltaTime, 0f);
