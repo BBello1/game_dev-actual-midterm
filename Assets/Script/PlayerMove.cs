@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class PlayerMove : MonoBehaviour
 {
     float upDownLook = 0f;
@@ -18,15 +20,6 @@ public class PlayerMove : MonoBehaviour
             transform.position -= transform.TransformVector(new Vector3(0f, 0f, .15f));
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.localEulerAngles += new Vector3(0f, -90f * Time.deltaTime, 0f);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.localEulerAngles += new Vector3(0f, 90f * Time.deltaTime, 0f);
-        }
-
         
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * 300f; 
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 200f; 
@@ -38,5 +31,11 @@ public class PlayerMove : MonoBehaviour
 
         transform.localEulerAngles = new Vector3(upDownLook, transform.localEulerAngles.y, 0f);
 
-    }
+        
+        if (Input.GetKeyDown(KeyCode.R))
+            {
+            SceneManager.LoadScene("Midterm", LoadSceneMode.Single);
+        }
+
+        }
 }
