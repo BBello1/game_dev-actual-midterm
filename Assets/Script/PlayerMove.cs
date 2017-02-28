@@ -20,9 +20,20 @@ public class PlayerMove : MonoBehaviour
             transform.position -= transform.TransformVector(new Vector3(0f, 0f, .15f));
         }
 
-        
-        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * 300f; 
-        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 200f; 
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position -= transform.TransformVector(new Vector3(.1f, 0f, 0f));
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.position += transform.TransformVector(new Vector3(.1f, 0f, 0f));
+        }
+
+
+
+        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * 100f; 
+        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 75f; 
         
         transform.Rotate(0f, mouseX, 0f);
 
