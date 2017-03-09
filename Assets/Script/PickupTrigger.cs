@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PickupTrigger : MonoBehaviour
 {
-    bool book;
-    bool keyboard;
-    bool baseball;
+    public Text currentItemText;
     Collider thingHolding;
     void OnTriggerStay(Collider other)
     {
@@ -14,7 +13,8 @@ public class PickupTrigger : MonoBehaviour
         {
             Debug.Log("Click");
             other.transform.SetParent(transform);
-            thingHolding = other; 
+            thingHolding = other;
+            currentItemText.text = thingHolding.GetComponent<Item>().itemText;
             thingHolding.transform.SetParent(transform);
             thingHolding.attachedRigidbody.isKinematic = true;
         }
@@ -22,13 +22,12 @@ public class PickupTrigger : MonoBehaviour
        
     }
 
-
-  
     void Update()
     {
         if (Input.GetMouseButton(0) == false)
         {
             thingHolding.attachedRigidbody.isKinematic = false;
+            currentItemText.text = "";
         }
 
         if (Input.GetMouseButton(0) == false && thingHolding != null)
