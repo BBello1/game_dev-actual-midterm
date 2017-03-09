@@ -33,7 +33,10 @@ public class PlayerMove : MonoBehaviour
 
 
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * 100f; 
-        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 75f; 
+        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 75f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         
         transform.Rotate(0f, mouseX, 0f);
 
@@ -48,5 +51,5 @@ public class PlayerMove : MonoBehaviour
             SceneManager.LoadScene("Midterm", LoadSceneMode.Single);
         }
 
-        }
+    }
 }
