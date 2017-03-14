@@ -23,7 +23,7 @@ public class DropLocation : MonoBehaviour
         Destroy(other.gameObject);
         items += 1;
 
-        if (items == 3)
+        if (items == 4)
         {
             SceneManager.LoadScene("End_Scene", LoadSceneMode.Single);
         }
